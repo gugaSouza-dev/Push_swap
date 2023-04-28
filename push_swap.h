@@ -34,7 +34,6 @@ typedef struct s_node
 {
 	struct s_node	*prev;
 	struct s_node	*next;
-	// int				stack_position;
 	int				value;
 }	t_node;
 
@@ -56,13 +55,13 @@ int			*arg_check(int argc, char **argv);
 t_list_ps	*new_list(void);
 
 //moviments
-void		swap(t_list_ps *list, char *moviment);
+void		reverse_rotate(t_list_ps *list, char *moviment);
+void		rotate(t_list_ps *list, char *moviment);
 void		super_swap(t_list_ps *list_a, t_list_ps *list_b);
 void		push(t_list_ps *src, t_list_ps *dest, char *moviment);
-void		rotate(t_list_ps *list, char *moviment);
-void		super_rotate(t_list_ps *list_a, t_list_ps *list_b);
-void		reverse_rotate(t_list_ps *list, char *moviment);
 void		super_reverse_rotate(t_list_ps *stack_a, t_list_ps *stack_b);
+void		super_rotate(t_list_ps *list_a, t_list_ps *list_b);
+void		swap(t_list_ps *list, char *moviment);
 
 //utils
 int			get_max_value(t_list_ps *list);
@@ -71,11 +70,8 @@ void		fake_push(t_list_ps *src, t_list_ps *dest);
 void		fake_rotate(t_list_ps *list);
 
 //sort
-void		sort(t_list_ps *list);
-void		medium_sort(t_list_ps *list_a, t_list_ps *list_b);
 void		big_sort(t_list_ps *s_a, t_list_ps *s_b, int *values, int v_len);
+void		medium_sort(t_list_ps *list_a, t_list_ps *list_b);
+void		sort(t_list_ps *list);
 
-void		test(t_list_ps *list);
-
-// void	init_stack(int argc, char **argv, t_stack *stack_a, t_stack *stack_b);
 #endif

@@ -31,7 +31,7 @@ int	get_max_value(t_list_ps *list)
 	int		max;
 	t_node	*node;
 
-	max = 0;
+	max = list->head->value;
 	node = list->head;
 	while (node)
 	{

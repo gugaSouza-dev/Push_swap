@@ -15,30 +15,50 @@
 
 static void	number_check(char *argv, int *values)
 {
-	int	i;
+	int		i;
+	char	*str;
 
 	i = 0;
+	str = ft_strtrim(argv, " ");
+	argv = str;
 	if (argv[i] == '-' || argv[i] == '+')
 		i++;
 	if (!argv[i])
+	{
+		free(str);
 		error_free_int(BADLY_FORMATTED_ARG, values);
+	}
 	while (argv[i])
 	{
 		if (!ft_isdigit(argv[i]) && argv[i] != '0')
+		{
+			free(str);
 			error_free_int(ARG_NOT_NUMBER, values);
+		}
 		i++;
 	}
+	free(str);
 }
 
 static int	minmax_int_check(char *argv, int *values)
 {
 	long	converted_arg;
+	char	*str;
 
+	str = ft_strtrim(argv, " ");
+	argv = str;
 	if (ft_strlen(argv) > 11)
+	{
+		free(str);
 		error_free_int(NOT_INT_VALUE, values);
+	}
 	converted_arg = ft_atolong(argv);
 	if (converted_arg < MIN_INT || converted_arg > MAX_INT)
+	{
+		free(str);
 		error_free_int(NOT_INT_VALUE, values);
+	}
+	free(str);
 	return ((int)converted_arg);
 }
 
